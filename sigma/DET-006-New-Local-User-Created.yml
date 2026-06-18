@@ -1,0 +1,22 @@
+title: DET 006 New Local User Created
+id: portfolio-det-006-new-local-user-created
+status: experimental
+description: Detect creation of a new user account
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4720
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: high
+tags:
+  - attack.t1136

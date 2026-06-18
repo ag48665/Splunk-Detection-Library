@@ -1,0 +1,22 @@
+title: DET 003 Successful Logon After Failures
+id: portfolio-det-003-successful-logon-after-failures
+status: experimental
+description: Detect successful authentication shortly after repeated failures
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4624
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: critical
+tags:
+  - attack.t1110

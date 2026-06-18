@@ -1,0 +1,22 @@
+title: DET 007 PowerShell Execution
+id: portfolio-det-007-powershell-execution
+status: experimental
+description: Detect PowerShell execution from Windows process creation logs
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4688
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: medium
+tags:
+  - attack.t1059.001

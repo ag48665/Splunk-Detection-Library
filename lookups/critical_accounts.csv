@@ -1,0 +1,3 @@
+user,role,criticality
+Administrator,Local Admin,High
+Domain Admin,Privileged Group,Critical

@@ -1,0 +1,22 @@
+title: DET 004 Privileged Logon
+id: portfolio-det-004-privileged-logon
+status: experimental
+description: Detect logons with special privileges assigned
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4672
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: medium
+tags:
+  - attack.t1078

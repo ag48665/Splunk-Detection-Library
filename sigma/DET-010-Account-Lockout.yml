@@ -1,0 +1,22 @@
+title: DET 010 Account Lockout
+id: portfolio-det-010-account-lockout
+status: experimental
+description: Detect locked user accounts
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4740
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: medium
+tags:
+  - attack.t1110

@@ -1,0 +1,22 @@
+title: DET 005 User Added To Admin Group
+id: portfolio-det-005-user-added-to-admin-group
+status: experimental
+description: Detect user added to privileged local/global group
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4728
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: critical
+tags:
+  - attack.t1098

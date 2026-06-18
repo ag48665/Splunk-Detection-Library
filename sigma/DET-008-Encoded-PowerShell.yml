@@ -1,0 +1,22 @@
+title: DET 008 Encoded PowerShell
+id: portfolio-det-008-encoded-powershell
+status: experimental
+description: Detect encoded or obfuscated PowerShell command-line usage
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4688
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: high
+tags:
+  - attack.t1027

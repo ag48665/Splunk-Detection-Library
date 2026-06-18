@@ -1,0 +1,22 @@
+title: DET 009 Suspicious CMD Execution
+id: portfolio-det-009-suspicious-cmd-execution
+status: experimental
+description: Detect suspicious cmd.exe execution patterns
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4688
+  condition: selection
+fields:
+  - EventID
+  - TargetUserName
+  - SubjectUserName
+  - host
+falsepositives:
+  - Administrative activity
+  - Lab testing
+level: medium
+tags:
+  - attack.t1059.003
